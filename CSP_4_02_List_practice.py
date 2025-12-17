@@ -20,7 +20,12 @@ def inOrder(li : list):
     :param list:
     :return:
     """
-    return all(li[i] <= li[i + 1] for i in range(len(li) - 1))
+    for i in range (0, len(i)-1):
+        if li(i) < li[i+1]:
+            pass
+        else:
+            return False
+    return True 
 
 
 def find(li: list, target : int):
