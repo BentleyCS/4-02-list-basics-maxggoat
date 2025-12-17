@@ -9,16 +9,18 @@ def bookends(li: list):
     :param list:
     :return:
     """
+    first_last = [li[0], li[-1]]
+    del li[0]
+    del li[-1]
 
-
-
+    return first_last
 def inOrder(li : list):
     """
     Given a list of numbers return true if the list is in ascending order.
     :param list:
     :return:
     """
-
+    return all(li[i] <= li[i + 1] for i in range(len(li) - 1))
 
 
 def find(li: list, target : int):
@@ -28,7 +30,7 @@ def find(li: list, target : int):
     If the target value is not in the list return -1
     If multiple of the target value exist within the list you may return either
     index.
-    You are not alowed to use the built-in index method from python.
+    You are not allowed to use the built-in index method from python.
     Example list [1,3,5,7,9] target = 3 returned value would be 1 because 3 can be
     found at the first index.
     Example list [3, 7, 8, 1, 0, 1, 12] target = 1 a return of either 3 or 5 would
@@ -38,7 +40,10 @@ def find(li: list, target : int):
     :param target:
     :return:
     """
-
+    for i in range(len(li)):
+        if li[i] == target:
+            return i
+    return -1
 
 def removeLowest(li):
     """
@@ -48,7 +53,8 @@ def removeLowest(li):
     :param list:
     :return:
     """
-
+    min_val = min(li)
+    li.remove(min_val)
 
 def keepOrder(li: list, value):
     """
@@ -59,7 +65,14 @@ def keepOrder(li: list, value):
     :param value:
     :return:
     """
+    result = li.copy()
+    for i, num in enumerate(result):
+        if value <= num:
+            result.insert(i, value)
+            return result
 
+    result.append(value)
+    return result
 
 def merge(l1:list, l2:list):
     """
@@ -70,4 +83,23 @@ def merge(l1:list, l2:list):
     :param l2:
     :return:
     """
-    
+    merged = []
+    while i < len(l1) and j < len(l2):
+        if l1[i] <= l2[j]:
+            merged.append(l1[i])
+            i += 1
+        else:
+            merged.append(l2[j])
+            j += 1
+
+    while i < len(l1):
+        merged.append(l1[i])
+        i += 1
+
+    while j < len(l2):
+        merged.append(l2[j])
+        j += 1
+
+    return merged
+
+
