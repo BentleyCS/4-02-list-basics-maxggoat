@@ -75,20 +75,15 @@ def keepOrder(li: list, value):
     :param value:
     :return:
     """
-    global x
-    result = li.copy()
-    if result[0] > value:
-        result.insert(0,value)
-    if result[-1] < value:
-        result.append(value)
-    if result[0] < value and result[-1] > value:
+    if li[0] > value:
+        li.insert(0,value)
+    if li[-1] < value:
+        li.append(value)
+    if li[0] < value and li[-1] > value:
         for i in range (len(li)-1):
-            if result[i] < value and result[i+1] > value:
-                result.insert(i+1,value)
+            if li[i] < value and li[i+1] > value:
+                li.insert(i+1,value)
                 break
-
-    x = result
-    return x
 
 x=[1,3,5,7]
 print(x)
@@ -102,6 +97,7 @@ x=[1,3,4,5,7,8]
 print(x)
 keepOrder(x, 0)
 print(x)
+
 
 def merge(l1:list, l2:list):
     """
