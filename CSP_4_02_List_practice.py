@@ -96,7 +96,16 @@ def merge(l1:list, l2:list)->list:
     """
     l3=l1
     for i in range(len(l2)):
-        keepOrder(l3, l2[i])
+        value = l2[i]
+        if l3[0] > value:
+            l3.insert(0, value)
+        if l3[-1] < value:
+            l3.append(value)
+        if l3[0] < value and l3[-1] > value:
+            for i in range(len(l3) - 1):
+                if l3[i] < value and l3[i + 1] > value:
+                    l3.insert(i + 1, value)
+                    break
     print(l3)
     return l3
 merge([1,3,5],[2,4,6,8])
