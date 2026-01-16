@@ -33,10 +33,6 @@ def inOrder(li : list):
     print(x)
     return x
 
-inOrder([1,5,6,8])
-inOrder([1,7,5,6,8])
-inOrder([])
-
 def find(li: list, target : int):
     """
     Given a list of numbers and a target value return the index location of the
@@ -80,13 +76,23 @@ def keepOrder(li: list, value):
     :return:
     """
     result = li.copy()
-    for i, num in enumerate(result):
-        if value <= num:
-            result.insert(i, value)
-            return result
-
-    result.append(value)
+    if result[0] > value:
+        result.insert(0,value)
+    if result[-1] < value:
+        result.append(value)
+    if result[0] < value and result[-1] > value:
+        for i in range (len(li)-1):
+            if result[i] < value and result[i+1] > value:
+                result.insert(i+1,value)
+                break
+    print(result)
     return result
+
+
+keepOrder([1,3,5,7], 4)
+keepOrder([1,3,5,7],8)
+keepOrder([1,3,4,5,7,8], 0)
+
 
 def merge(l1:list, l2:list):
     """
