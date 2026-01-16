@@ -14,6 +14,9 @@ def bookends(li: list):
     del li[-1]
 
     return first_last
+
+
+
 def inOrder(li : list):
     """
     Given a list of numbers return true if the list is in ascending order.
@@ -21,11 +24,12 @@ def inOrder(li : list):
     :return:
     """
     for i in range (0, len(i)-1):
-        if li(i) < li[i+1]:
-            pass
+        if li(i) <= li[i+1]:
+            x= True
         else:
-            return False
-    return True 
+            x=False
+            break
+    return x
 
 
 def find(li: list, target : int):
@@ -88,7 +92,6 @@ def merge(l1:list, l2:list):
     :param l2:
     :return:
     """
-    merged = []
     while i < len(l1) and j < len(l2):
         if l1[i] <= l2[j]:
             merged.append(l1[i])
@@ -106,5 +109,4 @@ def merge(l1:list, l2:list):
         j += 1
 
     return merged
-
 
