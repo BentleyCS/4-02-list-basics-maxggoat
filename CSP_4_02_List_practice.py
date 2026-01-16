@@ -23,14 +23,19 @@ def inOrder(li : list):
     :param list:
     :return:
     """
-    for i in range (0, len(i)-1):
-        if li(i) <= li[i+1]:
+    x= True
+    for i in range (0, len(li)-1):
+        if li[i] <= li[i+1]:
             x= True
         else:
             x=False
             break
+    print(x)
     return x
 
+inOrder([1,5,6,8])
+inOrder([1,7,5,6,8])
+inOrder([])
 
 def find(li: list, target : int):
     """
