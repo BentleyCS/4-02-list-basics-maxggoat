@@ -86,15 +86,22 @@ def keepOrder(li: list, value):
             if result[i] < value and result[i+1] > value:
                 result.insert(i+1,value)
                 break
-    print(result)
+
     x = result
     return x
+
 x=[1,3,5,7]
+print(x)
 keepOrder(x, 4)
 print(x)
-keepOrder([1,3,4,5,7],8)
-keepOrder([1,3,4,5,7,8], 0)
-
+x=[1,3,4,5,7]
+print(x)
+keepOrder(x,8)
+print(x)
+x=[1,3,4,5,7,8]
+print(x)
+keepOrder(x, 0)
+print(x)
 
 def merge(l1:list, l2:list):
     """
