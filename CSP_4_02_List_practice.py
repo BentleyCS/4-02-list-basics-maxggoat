@@ -88,9 +88,8 @@ def keepOrder(li: list, value):
     print(result)
     return result
 
-
 keepOrder([1,3,5,7], 4)
-keepOrder([1,3,5,7],8)
+keepOrder([1,3,4,5,7],8)
 keepOrder([1,3,4,5,7,8], 0)
 
 
