@@ -75,6 +75,7 @@ def keepOrder(li: list, value):
     :param value:
     :return:
     """
+    global x
     result = li.copy()
     if result[0] > value:
         result.insert(0,value)
@@ -86,9 +87,11 @@ def keepOrder(li: list, value):
                 result.insert(i+1,value)
                 break
     print(result)
-    return result
-
-keepOrder([1,3,5,7], 4)
+    x = result
+    return x
+x=[1,3,5,7]
+keepOrder(x, 4)
+print(x)
 keepOrder([1,3,4,5,7],8)
 keepOrder([1,3,4,5,7,8], 0)
 
