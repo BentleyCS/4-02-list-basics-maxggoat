@@ -85,7 +85,7 @@ def keepOrder(li: list, value):
                 li.insert(i+1,value)
                 break
 
-def merge(l1:list, l2:list):
+def merge(l1:list, l2:list)->list:
     """
     Given two lists that are in order. produce a new list that is the two lists merged together and in order.
     Make sure to now modify either of the original lists.
@@ -94,9 +94,10 @@ def merge(l1:list, l2:list):
     :param l2:
     :return:
     """
+    l3=l1
     for i in range(len(l2)):
-        keepOrder(l1, l2[i])
-    print(l1)
-    return l1
+        keepOrder(l3, l2[i])
+    print(l3)
+    return l3
 merge([1,3,5],[2,4,6,8])
 
