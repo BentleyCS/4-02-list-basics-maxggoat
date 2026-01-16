@@ -94,7 +94,8 @@ def merge(l1:list, l2:list)->list:
     :param l2:
     :return:
     """
-    l3=l1
+    l3=l1.copy()
+    print(l3)
     for i in range(len(l2)):
         value = l2[i]
         if l3[0] > value:
@@ -106,7 +107,6 @@ def merge(l1:list, l2:list)->list:
                 if l3[i] < value and l3[i + 1] > value:
                     l3.insert(i + 1, value)
                     break
-    print(l3)
     return l3
-merge([1,3,5],[2,4,6,8])
+
 
